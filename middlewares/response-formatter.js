@@ -11,12 +11,12 @@ const responseFormatter = function() {
             ctx.body = {
                 code: '200',
                 message: 'success',
-                data: ctx.body
+                result: ctx.body
             }
         } else {
             ctx.body = {
-                code: '0',
-                message: 'success'
+                code: '200',
+                message: 'success',
             }
         }
     }
