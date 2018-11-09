@@ -6,19 +6,13 @@ const responseFormatter = function() {
         // 先去执行路由
         await next();
 
-        // 如果有返回数据，将返回数据添加到data中
-        if (ctx.body) {
-            ctx.body = {
-                code: '200',
-                message: 'success',
-                result: ctx.body
-            }
-        } else {
-            ctx.body = {
-                code: '200',
-                message: 'success',
-            }
+        ctx.body = {
+            code: ctx.response.status,
+            message: ctx.response.message,
+            result: ctx.body
         }
+
+        console.log(ctx.response.body)
     }
 }
 
